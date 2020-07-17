@@ -16,7 +16,7 @@ const quotes = [
     source: "Leia Organa",
     year: "1977",
     citation: "Stars Wars Episode IV: A New Hope",
-    tag: ['Light Side'],
+    tag: ['Light Side', 'Original Trilogy'],
   },
   {
     quote: "I find your lack of faith disturbing.",
@@ -52,25 +52,26 @@ const quotes = [
  * `getRandomQuote` function
 ***/
 const getRandomQuote = () => {
-  const randomNumber = Math.floor(Math.random() * quotes.length) + 1
+  const randomNumber = Math.floor(Math.random() * quotes.length)
   const quote = `
   <p class="quote">${quotes[randomNumber].quote}</p>
-  <p class="source">${quotes[randomNumber].source}<span class="citation">${quotes[randomNumber].citation}</span><span class="year">${quotes[randomNumber].year}</span></p>
-  <p class="source">${quotes[randomNumber].tag.join(', ')}</p>
+  <p class="source">${quotes[randomNumber].source}<span class="citation">${quotes[randomNumber].citation}</span><span class="year">${quotes[randomNumber].year}</span><br /><span>Tags: ${quotes[randomNumber].tag.join(', ')}</span></p>
   `
-  console.log(quote)
+  return quote
 }
-
 
 /***
  * `printQuote` function
 ***/
-
-
+const printQuote = () => {
+  const quoteBox = document.querySelector("#quote-box")
+  const html = getRandomQuote()
+  quoteBox.innerHTML = html
+}
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-// document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
