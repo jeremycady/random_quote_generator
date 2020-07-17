@@ -95,7 +95,7 @@ const printQuote = () => {
 }
 
 /***
- * `startInterval` function
+ * `setPrintInterval` function
 ***/
 
 const setPrintInterval = () => {
