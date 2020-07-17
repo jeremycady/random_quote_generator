@@ -49,6 +49,12 @@ const quotes = [
 ]
 
 /***
+ * variable for starting the printQuote interval
+***/
+let printInterval;
+
+
+/***
  * `getRandomQuote` function
 ***/
 const getRandomQuote = () => {
@@ -81,7 +87,19 @@ const printQuote = () => {
   const html = getRandomQuote()
   const color = getRandomColor()
   quoteBox.innerHTML = html
-  bodyTag.style.backgroundColor = color; 
+  bodyTag.style.backgroundColor = color;
+  if (printInterval) {
+    clearInterval(printInterval)
+  }
+  setPrintInterval()
+}
+
+/***
+ * `startInterval` function
+***/
+
+const setPrintInterval = () => {
+  printInterval = setInterval(printQuote,5000)
 }
 
 printQuote()
