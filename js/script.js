@@ -61,12 +61,27 @@ const getRandomQuote = () => {
 }
 
 /***
+ * `getRandomColor` function
+***/
+
+const getRandomColor = () => {
+  const red = Math.floor(Math.random() * 255)
+  const green = Math.floor(Math.random() * 255)
+  const blue = Math.floor(Math.random() * 255)
+  const color = `rgb(${red},${green},${blue},1)`
+  return color
+}
+
+/***
  * `printQuote` function
 ***/
 const printQuote = () => {
   const quoteBox = document.querySelector("#quote-box")
+  const bodyTag = document.body
   const html = getRandomQuote()
+  const color = getRandomColor()
   quoteBox.innerHTML = html
+  bodyTag.style.backgroundColor = color; 
 }
 
 printQuote()
